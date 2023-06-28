@@ -5,6 +5,12 @@ builder.Services.AddEndpointDefinitions(typeof(Program));
 
 var app = builder.Build();
 app.UsePathBase(new PathString("/api"));
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
+}
+
 app.UseEndpointDefinitions();
 app.Run();
 
